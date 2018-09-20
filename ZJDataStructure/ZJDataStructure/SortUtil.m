@@ -5,6 +5,13 @@
 //  Created by ZJ on 2018/9/20.
 //  Copyright © 2018年 jydZJ. All rights reserved.
 //
+// a=a^b;
+// b=a^b;
+// a=a^b;
+// a=a+b;
+//  b=a-b;
+//  a=a-b;
+//
 
 #import "SortUtil.h"
 
@@ -22,8 +29,6 @@
  */
 +(void)BubbleSort{
     
-    NSMutableArray *arr_M = [NSMutableArray arrayWithObjects:@1,@4,@2,@3,@5,nil];
-    
     //遍历`数组的个数`次
     /*
      i = 0 的时候，j的相邻两个位置都要比较排一下位置：
@@ -35,6 +40,8 @@
      i = 1;
      ……  ……
      */
+    NSMutableArray *arr_M = [NSMutableArray arrayWithObjects:@1,@4,@2,@3,@5,nil];
+    
     for (int i=0; i<arr_M.count; i++) {
         for (int j=0; j<arr_M.count-1; j++) {
             
@@ -57,6 +64,59 @@
         NSLog(@"UsingBlock:%@",arr_M[idx]);
     }];
     
+}
+
++(void)SelectionSort{
+    
+    NSMutableArray *arr = [NSMutableArray arrayWithObjects:@9,@2,@7,@1,@5,nil];
+    
+    for (int i=0; i<arr.count; i++) {
+        for (int j=i+1; j<arr.count; j++) {
+            if (arr[i] > arr[j]) {
+                [arr exchangeObjectAtIndex:i withObjectAtIndex:j];
+            }
+        }
+        NSLog(@"第%d趟，%@",i+1,arr);
+    }
+    
+    [arr enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        NSLog(@"UsingBlock:%@",arr[idx]);
+    }];
+}
+
+/** 选择排序
+ * 每一趟从待排序的数据元素中选出最小（或最大）的一个元素，顺序放在已排好序的数列的最后，直到全部待排序的数据元素排完。
+     选择排序是不稳定的排序方法。
+ 一. 算法描述
+ 选择排序：比如在一个长度为N的无序数组中，
+       第一趟遍历N个数据，找出其中最小的数值与第一个元素交换，
+       第二趟遍历剩下的N-1个数据，找出其中最小的数值与第二个元素交换......第N-1趟遍历剩下的2个数据，找出其中最小的数值与第N-1个元素交换，至此选择排序完成。
+ */
++(void)SelectionSortStepWise{
+    
+    NSMutableArray *arr = [NSMutableArray arrayWithObjects:@9,@2,@7,@1,@5,nil];
+    
+    for (int i=0; i<arr.count; i++) {
+        int minIndex = i;
+        for (int j=minIndex+1; j<arr.count; j++) {
+            if (arr[minIndex] > arr[j]) {
+                minIndex = j;
+            }
+        }
+        
+        if (minIndex != i) {
+            //[arr exchangeObjectAtIndex:i withObjectAtIndex:minIndex];
+            int temp = 0;
+            temp = [arr[i] intValue];
+            arr[i] = arr[minIndex];
+            arr[minIndex] = @(temp);
+        }
+        NSLog(@"----第%d趟，%@",i+1,arr);
+    }
+    
+    [arr enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        NSLog(@"UsingBlock:%@",arr[idx]);
+    }];
 }
 
 @end

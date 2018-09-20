@@ -26,7 +26,9 @@
 }
 
 -(void)testSort{
-    [SortUtil BubbleSort];
+//    [SortUtil BubbleSort];
+//    [SortUtil SelectionSort];
+    [SortUtil SelectionSortStepWise];
 }
 
 

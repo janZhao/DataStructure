@@ -11,6 +11,12 @@
 
 @interface SortUtil : NSObject
 
+/** 冒泡排序*/
 +(void)BubbleSort;
+
+/** 选择排序*/
++(void)SelectionSort;
+/** 选择排序 分布式写法 两种方式第一趟排序的结果不一样*/
++(void)SelectionSortStepWise;
 
 @end
