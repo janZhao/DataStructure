@@ -19,4 +19,7 @@
 /** 选择排序 分布式写法 两种方式第一趟排序的结果不一样*/
 +(void)SelectionSortStepWise;
 
+/** 快速排序*/
++(void)QuickSort;
+
 @end
