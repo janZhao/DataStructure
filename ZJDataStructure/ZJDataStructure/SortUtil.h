@@ -14,12 +14,12 @@
 /** 冒泡排序*/
 +(void)BubbleSort;
 
-/** 选择排序*/
+/** 选择排序  交换的次数比较多*/
 +(void)SelectionSort;
 /** 选择排序 分布式写法 两种方式第一趟排序的结果不一样*/
 +(void)SelectionSortStepWise;
 
 /** 快速排序*/
-+(void)QuickSort;
++(void)QuickSortArray:(NSMutableArray *)arr withLeftIndex:(NSInteger)left  withRightIndex:(NSInteger)right;
 
 @end

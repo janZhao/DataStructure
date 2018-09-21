@@ -28,7 +28,10 @@
 -(void)testSort{
 //    [SortUtil BubbleSort];
 //    [SortUtil SelectionSort];
-    [SortUtil SelectionSortStepWise];
+//    [SortUtil SelectionSortStepWise];
+    
+    NSMutableArray *array = [NSMutableArray arrayWithObjects:@5,@8,@4,@2,@3,@7, nil];
+    [SortUtil QuickSortArray:array withLeftIndex:0 withRightIndex:array.count-1];
 }
 
 
